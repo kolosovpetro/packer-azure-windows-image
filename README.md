@@ -2,6 +2,25 @@
 
 Example of how to create and deploy Azure Windows VM with preinstalled chocolatey and other software
 
+### To install Packer
+
+- `choco install packer -y`
+
+### Packer commands
+
+- `packer validate -var-file="windows.variables.json" windows-2019.json`
+- `packer build -var-file="windows.variables.json" windows-2019.json`
+
+### Packer chocolatey commands
+
+- `packer validate -var-file="windows.variables.json" windows-2019-chocolatey.json`
+- `packer build -var-file="windows.variables.json" windows-2019-chocolatey.json`
+
+### Packer all software commands
+
+- `packer validate -var-file="windows.variables.json" windows-2019-all-software.json`
+- `packer build -var-file="windows.variables.json" windows-2019-all-software.json`
+
 ## Pre-commit configuration
 
 - Install python3 via windows store
@@ -42,17 +61,18 @@ sas_token            = "sas_token"
 # Module documentation
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Requirements
 
-| Name | Version |
-|------|---------|
+| Name                                                                | Version |
+|---------------------------------------------------------------------|---------|
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | =3.71.0 |
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.71.0 |
+| Name                                                          | Version |
+|---------------------------------------------------------------|---------|
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.71.0  |
 
 ## Modules
 
@@ -60,18 +80,18 @@ No modules.
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [azurerm_resource_group.public](https://registry.terraform.io/providers/hashicorp/azurerm/3.71.0/docs/resources/resource_group) | resource |
+| Name                                                                                                                              | Type        |
+|-----------------------------------------------------------------------------------------------------------------------------------|-------------|
+| [azurerm_resource_group.public](https://registry.terraform.io/providers/hashicorp/azurerm/3.71.0/docs/resources/resource_group)   | resource    |
 | [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.71.0/docs/data-sources/client_config) | data source |
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_prefix"></a> [prefix](#input\_prefix) | Prefix for all resources | `string` | n/a | yes |
-| <a name="input_resource_group_location"></a> [resource\_group\_location](#input\_resource\_group\_location) | Resource group location | `string` | n/a | yes |
-| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Resource group name | `string` | n/a | yes |
+| Name                                                                                                        | Description              | Type     | Default | Required |
+|-------------------------------------------------------------------------------------------------------------|--------------------------|----------|---------|:--------:|
+| <a name="input_prefix"></a> [prefix](#input\_prefix)                                                        | Prefix for all resources | `string` | n/a     |   yes    |
+| <a name="input_resource_group_location"></a> [resource\_group\_location](#input\_resource\_group\_location) | Resource group location  | `string` | n/a     |   yes    |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name)             | Resource group name      | `string` | n/a     |   yes    |
 
 ## Outputs
 
