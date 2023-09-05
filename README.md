@@ -1,9 +1,6 @@
-# Terraform template
+# Packer Azure Windows Image
 
-Terraform template for modules and sub-modules.
-Includes pre-commit hooks that lint the terraform code and generate module's
-documentation as part of README file.
-Contains examples of terraform CI/CD pipelines for GitHub Actions and Azure Pipelines.
+Example of how to create and deploy Azure Windows VM with preinstalled chocolatey and other software
 
 ## Pre-commit configuration
 
@@ -59,9 +56,7 @@ sas_token            = "sas_token"
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | ./modules/example_submodule | n/a |
+No modules.
 
 ## Resources
 
