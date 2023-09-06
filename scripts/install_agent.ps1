@@ -1,12 +1,9 @@
-$PAT = $env:MY_PAT;
-$ORGANIZATION_URL = $env:MY_ORG;
-$ENVIRONMENT_NAME = $env:MY_ENV,
-$PROJECT_NAME = $env:MY_PROJECT;
-
-Write-Host "PAT: $PAT"
-Write-Host "Organization URL: $ORGANIZATION_URL"
-Write-Host "Environment Name: $ENVIRONMENT_NAME"
-Write-Host "Project Name: $PROJECT_NAME"
+param(
+    [string]$PAT,
+    [String]$ORGANIZATION,
+    [String]$PROJECT,
+    [String]$ENVIRONMENT
+)
 
 $ErrorActionPreference = "Stop";
 
@@ -41,9 +38,7 @@ for($i = 1; $i -lt 100; $i++)
 
 $agentZip = "$PWD\agent.zip";
 
-$DefaultProxy = [System.Net.WebRequest]::DefaultWebProxy;
-
-$securityProtocol = @();
+$DefaultProxy = [System.Net.WebRequest]::DefaultWebProxy; $securityProtocol = @();
 
 $securityProtocol += [Net.ServicePointManager]::SecurityProtocol;
 
@@ -66,18 +61,14 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem;
 
 [System.IO.Compression.ZipFile]::ExtractToDirectory($agentZip, "$PWD");
 
-.\config.cmd --unattended `
-    --environment `
-    --environmentname $ENVIRONMENT_NAME `
+.\config.cmd `
+    --environment --environmentname $ENVIRONMENT `
     --agent $env:COMPUTERNAME `
-    --runasservice `
-    --work '_work' `
-    --url $ORGANIZATION_URL `
-    --projectname $PROJECT_NAME `
-    --windowsLogonAccount "NT AUTHORITY\SYSTEM" `
-    --acceptTeeEula `
-    --addDeploymentGroupTags --deploymentGroupTags "web, db" `
-    --auth PAT `
-    --token $PAT;
+    --runasservice --work '_work' `
+    --url 'https://dev.azure.com/PetroKolosovProjects/' `
+    --projectname $PROJECT `
+    --auth PAT --token $PAT;
 
 Remove-Item $agentZip;
+
+# example call: .\install_agent.ps1 -PAT "YOUR_PAT" -ORGANIZATION "https://dev.azure.com/PetroKolosovProjects/" -PROJECT "packer-azure-windows-image" -ENVIRONMENT "qa"
