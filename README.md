@@ -114,8 +114,5 @@ sas_token            = "sas_token"
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_public_ip"></a> [public\_ip](#output\_public\_ip) | n/a |
-| <a name="output_username"></a> [username](#output\_username) | n/a |
+No outputs.
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

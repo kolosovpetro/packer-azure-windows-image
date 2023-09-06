@@ -24,6 +24,10 @@
   "provisioners": [
     {
       "type": "powershell",
+      "script": "scripts/install_iis.ps1"
+    },
+    {
+      "type": "powershell",
       "script": "scripts/install_chocolatey.ps1"
     },
     {
@@ -37,6 +41,10 @@
     {
       "type": "powershell",
       "script": "scripts/install_software.ps1"
+    },
+    {
+      "type": "powershell",
+      "script": "scripts/execute_sysprep.ps1"
     }
   ]
 }
