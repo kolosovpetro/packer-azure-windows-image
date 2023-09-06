@@ -72,4 +72,5 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem;
 
 Remove-Item $agentZip;
 
-# example call: .\install_agent.ps1 -PAT "YOUR_PAT" -ORGANIZATION "https://dev.azure.com/PetroKolosovProjects/" -PROJECT "packer-azure-windows-image" -ENVIRONMENT "qa"
+# Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+# .\install_agent.ps1 -PAT "YOUR_PAT" -ORGANIZATION "https://dev.azure.com/PetroKolosovProjects/" -PROJECT "packer-azure-windows-image" -ENVIRONMENT "qa"
