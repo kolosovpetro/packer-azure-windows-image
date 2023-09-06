@@ -2,7 +2,8 @@ param(
     [string]$PAT,
     [String]$ORGANIZATION,
     [String]$PROJECT,
-    [String]$ENVIRONMENT
+    [String]$ENVIRONMENT,
+    [String]$VERSION = "3.225.0"
 )
 
 $ErrorActionPreference = "Stop";
@@ -48,7 +49,7 @@ $securityProtocol += [Net.SecurityProtocolType]::Tls12;
 
 $WebClient = New-Object Net.WebClient;
 
-$Uri = 'https://vstsagentpackage.azureedge.net/agent/3.225.0/vsts-agent-win-x64-3.225.0.zip';
+$Uri = "https://vstsagentpackage.azureedge.net/agent/$VERSION/vsts-agent-win-x64-$VERSION.zip";
 
 if ($DefaultProxy -and (-not $DefaultProxy.IsBypassed($Uri)))
 {
