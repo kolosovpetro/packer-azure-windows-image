@@ -1,9 +1,12 @@
-param(
-    [String]$pat,
-    [String]$organizationUrl = "https://dev.azure.com/PetroKolosovProjects/",
-    [String]$environmentName = "dev",
-    [String]$projectName = "packer-azure-windows-image"
-)
+$PAT = $env:MY_PAT;
+$ORGANIZATION_URL = $env:MY_ORG;
+$ENVIRONMENT_NAME = $env:MY_ENV,
+$PROJECT_NAME = $env:MY_PROJECT;
+
+Write-Host "PAT: $PAT"
+Write-Host "Organization URL: $ORGANIZATION_URL"
+Write-Host "Environment Name: $ENVIRONMENT_NAME"
+Write-Host "Project Name: $PROJECT_NAME"
 
 $ErrorActionPreference = "Stop";
 
@@ -63,9 +66,18 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem;
 
 [System.IO.Compression.ZipFile]::ExtractToDirectory($agentZip, "$PWD");
 
-.\config.cmd --environment --environmentname $environmentName --agent $env:COMPUTERNAME `
-    --runasservice --work '_work' --url $organizationUrl `
-    --projectname $projectName `
-    --auth PAT --token $pat;
+.\config.cmd --unattended `
+    --environment `
+    --environmentname $ENVIRONMENT_NAME `
+    --agent $env:COMPUTERNAME `
+    --runasservice `
+    --work '_work' `
+    --url $ORGANIZATION_URL `
+    --projectname $PROJECT_NAME `
+    --windowsLogonAccount "NT AUTHORITY\SYSTEM" `
+    --acceptTeeEula `
+    --addDeploymentGroupTags --deploymentGroupTags "web, db" `
+    --auth PAT `
+    --token $PAT;
 
 Remove-Item $agentZip;
