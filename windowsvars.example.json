@@ -1,9 +1,10 @@
 {
-  "azure-subscription-id": "my-azure-subscription-id",
-  "azure-client-id": "my-azure-client-id",
-  "azure-client-secret": "my-azure-client-secret",
-  "azure-tenant-id": "my-azure-tenant-id",
-  "azure-resource-group": "kopicloud-packer-rg",
+  "azure-subscription-id": "",
+  "azure-client-id": "",
+  "azure-client-secret": "",
+  "azure-tenant-id": "",
+  "azure-resource-group": "rg-packer-win-2019",
   "azure-region": "northeurope",
-  "vm-size": "Standard_B4ms"
+  "vm-size": "Standard_B4ms",
+  "image-name": "windows-server2019-v1"
 }
