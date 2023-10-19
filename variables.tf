@@ -72,3 +72,8 @@ variable "custom_script_extension_enabled" {
   type        = bool
   description = "Specifies whether the extension should be enabled or disabled."
 }
+
+variable "image_resource_group_name" {
+  type        = string
+  description = "Specifies the name of the resource group that contains the image to use to create the virtual machine."
+}

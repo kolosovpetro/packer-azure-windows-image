@@ -66,6 +66,7 @@ module "virtual_machine" {
   resource_group_location           = azurerm_resource_group.public.location
   resource_group_name               = azurerm_resource_group.public.name
   storage_image_reference_offer     = var.storage_image_reference_offer
+  image_resource_group_name         = var.image_resource_group_name
   storage_image_reference_publisher = var.storage_image_reference_publisher
   storage_image_reference_sku       = var.storage_image_reference_sku
   storage_image_reference_version   = var.storage_image_reference_version
@@ -99,7 +100,7 @@ module "keyvault_access_policy" {
 module "custom_script_extension" {
   count                                 = var.custom_script_extension_enabled ? 1 : 0
   source                                = "./modules/custom-script-extension"
-  custom_script_extension_absolute_path = "D:/RiderProjects/02_PRIVATE_PROJECTS/AzureWindowsVMTerraform/scripts/install_iis.ps1"
+  custom_script_extension_absolute_path = "E:/RiderProjects/03_TERRAFORM_PROJECTS/packer-azure-windows-image/scripts/install_iis.ps1"
   custom_script_extension_file_name     = "install_iis.ps1"
   extension_name                        = "extension1"
   storage_account_name                  = module.storage.storage_account_name

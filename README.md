@@ -87,7 +87,15 @@ sas_token            = "sas_token"
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_azure-client-id"></a> [azure-client-id](#input\_azure-client-id) | n/a | `string` | n/a | yes |
+| <a name="input_azure-client-secret"></a> [azure-client-secret](#input\_azure-client-secret) | n/a | `string` | n/a | yes |
+| <a name="input_azure-region"></a> [azure-region](#input\_azure-region) | n/a | `string` | n/a | yes |
+| <a name="input_azure-resource-group"></a> [azure-resource-group](#input\_azure-resource-group) | n/a | `string` | n/a | yes |
+| <a name="input_azure-subscription-id"></a> [azure-subscription-id](#input\_azure-subscription-id) | n/a | `string` | n/a | yes |
+| <a name="input_azure-tenant-id"></a> [azure-tenant-id](#input\_azure-tenant-id) | n/a | `string` | n/a | yes |
 | <a name="input_custom_script_extension_enabled"></a> [custom\_script\_extension\_enabled](#input\_custom\_script\_extension\_enabled) | Specifies whether the extension should be enabled or disabled. | `bool` | n/a | yes |
+| <a name="input_image-name"></a> [image-name](#input\_image-name) | n/a | `string` | n/a | yes |
+| <a name="input_image_resource_group_name"></a> [image\_resource\_group\_name](#input\_image\_resource\_group\_name) | Specifies the name of the resource group that contains the image to use to create the virtual machine. | `string` | n/a | yes |
 | <a name="input_os_profile_admin_password"></a> [os\_profile\_admin\_password](#input\_os\_profile\_admin\_password) | Specifies the password of the administrator account. | `string` | n/a | yes |
 | <a name="input_os_profile_admin_username"></a> [os\_profile\_admin\_username](#input\_os\_profile\_admin\_username) | Specifies the name of the administrator account. | `string` | n/a | yes |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | Resources name prefix | `string` | n/a | yes |
@@ -101,9 +109,13 @@ sas_token            = "sas_token"
 | <a name="input_storage_os_disk_caching"></a> [storage\_os\_disk\_caching](#input\_storage\_os\_disk\_caching) | Specifies the caching requirements for the OS disk. | `string` | n/a | yes |
 | <a name="input_storage_os_disk_create_option"></a> [storage\_os\_disk\_create\_option](#input\_storage\_os\_disk\_create\_option) | Specifies how the virtual machine should be created. | `string` | n/a | yes |
 | <a name="input_storage_os_disk_managed_disk_type"></a> [storage\_os\_disk\_managed\_disk\_type](#input\_storage\_os\_disk\_managed\_disk\_type) | Specifies the storage account type for the managed disk. | `string` | n/a | yes |
+| <a name="input_vm-size"></a> [vm-size](#input\_vm-size) | n/a | `string` | n/a | yes |
 | <a name="input_vm_size"></a> [vm\_size](#input\_vm\_size) | The size of the virtual machine. | `string` | n/a | yes |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_public_ip"></a> [public\_ip](#output\_public\_ip) | n/a |
+| <a name="output_username"></a> [username](#output\_username) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

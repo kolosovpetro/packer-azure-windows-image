@@ -1,3 +1,9 @@
+resource "azurerm_network_security_group" "public" {
+  name                = var.nsg_name
+  location            = var.resource_group_location
+  resource_group_name = var.resource_group_name
+}
+
 resource "azurerm_network_security_rule" "allow_rdp" {
   name                        = "AllowRDP"
   priority                    = 1000
